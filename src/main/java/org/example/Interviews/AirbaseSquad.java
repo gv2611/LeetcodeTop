@@ -24,7 +24,7 @@ public class AirbaseSquad {
 
         for(int i = 0;i<rows;i++){
             for(int j=0;j<columns;j++){
-                if(visited[i][j] == false && squadList.get(i).get(j)==1){
+                if(!visited[i][j] && squadList.get(i).get(j)==1){
                     count++;
                     group[i][j] = groupNumber;
                     DFS(squadList, i, j, visited, groupNumber, group);
@@ -52,7 +52,7 @@ public class AirbaseSquad {
             int nrow= row+delrow[i];
             int ncol = column +delColumn[i];
             if(nrow >= 0  && nrow < n && ncol >= 0 && ncol < m
-                    && visited[nrow][ncol] == false && squadList.get(nrow).get(ncol) == 1)
+                    && !visited[nrow][ncol] && squadList.get(nrow).get(ncol) == 1)
             {
                 group[nrow][ncol] = groupNumber;
                 DFS(squadList, nrow, ncol, visited, groupNumber, group);
